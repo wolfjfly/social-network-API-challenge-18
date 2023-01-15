@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-
+const dateFormat = require('../utils/dateFormat');
 const validateEmail = function(email) {
     var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return re.test(email)
@@ -50,6 +50,6 @@ usersSchema.virtual('friendsCount').get(function() {
     return this.friends.length;
 });
 
-const Users = model('users', UsersSchema);
+const users = model('users', usersSchema);
 
-module.exports = Users;
+module.exports = users;
