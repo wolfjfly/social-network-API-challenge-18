@@ -2,7 +2,6 @@ const res = require('express/lib/response');
 const { users } = require('../models');
 
 const usersController = {
-    // get all users
     getAllUsers(req, res) {
         users.find({})
             .populate({
@@ -17,8 +16,6 @@ const usersController = {
                 res.sendStatus(400);
             });
     },
-
-    //get single user by id
     getUsersById({ params }, res) {
         users.findOne({ _id: params.id })
             .populate({
@@ -32,15 +29,12 @@ const usersController = {
                 res.sendStatus(400);
             });
     },
-
-    // create User
     createUsers({ body }, res) {
         users.create(body)
             .then(dbUsersData => res.json(dbUsersData))
             .catch(err => res.json(err));
     },
     
-    // update user by id
     updateUsers({ params, body }, res) {
         users.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
             .then(dbUsersData => {
@@ -52,8 +46,6 @@ const usersController = {
             })
             .catch(err => res.json(err));
     },
-
-    // add friend to user
     addFriend({ params }, res) {
         users.findOneAndUpdate(
             { _id: params.id },
@@ -70,15 +62,11 @@ const usersController = {
         })
         .catch(err => res.json(err));
     },
-
-    // delete user
     deleteUsers({ params }, res) {
         users.findOneAndDelete({ _id: params.id })
             .then(dbUsersData => res.json(dbUsersData))
             .catch(err => res.json(err));
     },
-
-    // delete friend
     deleteFriend({ params }, res) {
         users.findOneAndUpdate({_id: params.id},
             {$pull: { friends: params.friendId}}, 
