@@ -4,10 +4,9 @@ const moment = require('moment');
 
 const reactionsSchema = new Schema(
     {
-        // set up custom id to avoid confustion with parent thoughts_id
         reactionId: {
             type: Schema.Types.ObjectId,
-            default: () => Types.ObjectId()
+            default: () => new Types.ObjectId()
         },
         reactionBody: {
             type: String,
@@ -27,7 +26,8 @@ const reactionsSchema = new Schema(
     {
     toJSON: {
         getters: true
-        }
+        },
+        id: false
     }
 );
 
@@ -48,7 +48,6 @@ const thoughtsSchema = new Schema(
             type: String,
             required: true
         },
-        // use ReactionSchema to validate date for a reaction
         reactions: [reactionsSchema]
     },
     {
@@ -59,8 +58,6 @@ const thoughtsSchema = new Schema(
         id: false
     }
 );
-
-
 
 thoughtsSchema.virtual('reactionsCount').get(function() {
     return this.reactions.length;

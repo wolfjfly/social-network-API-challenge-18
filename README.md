@@ -2,8 +2,7 @@
   
   ## Description
   Your challenge is to build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. You’ll use Express.js for routing, a MongoDB database, and the Mongoose ODM.
-  ![screenshot.JPG](./assets/images/InsomniaCompass.JPG)
-
+  
   [![License Badge](https://img.shields.io/badge/license-MIT-success?style=plastic)](https://choosealicense.com/licenses/mit/)
   
   
@@ -15,6 +14,8 @@
   5. [Tests](#tests)
   6. [License](#license)
   7. [Questions](#questions)
+
+  ![screenshot.JPG](./assets/images/InsomniaCompass.JPG)
   
   ## Installation
    npm i express "^4.17.1"    
@@ -39,7 +40,7 @@
 
   |POST localhost:3001/api/users/"users"_id/friends/"users"_id | `ADD Friend` | DELETE localhost:3001/api/users/"users"_id/friends/"friend" id | `DELETE Friend` |  
   
-  <img width="1207" alt="Demo" src="Assets/gif.gif">
+  <img width="1207" alt="Demo" src="Assets/ch18gif.gif">
 
   
   ## Contributing
@@ -74,3 +75,7 @@ Licensed under the [MIT license](https://choosealicense.com/licenses/mit/)
     
   github   
   https://github.com/wolfjfly/social-network-API-challenge-18
+
+  Video
+  https://drive.google.com/file/d/1-3VamGmIvSDT0HOIiFbOtya76sUour_Z/view
+
